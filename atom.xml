@@ -4,7 +4,7 @@
   <title><![CDATA[flex's Blog]]></title>
   <link href="http://flexwang.github.io/atom.xml" rel="self"/>
   <link href="http://flexwang.github.io/"/>
-  <updated>2014-07-16T14:12:22-04:00</updated>
+  <updated>2014-07-16T14:13:26-04:00</updated>
   <id>http://flexwang.github.io/</id>
   <author>
     <name><![CDATA[Zhaotian Wang]]></name>
@@ -61,7 +61,6 @@
 <li>Tab width and whether replace tab with spaces</li>
 <li>The use of space</li>
 <li>Where should the curly braces go</li>
-<li>Etc.</li>
 </ul>
 
 
