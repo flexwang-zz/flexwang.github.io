@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>flex's Blog</title>
+  <title>Ubuntu14.04上mesa3d的编译与安装 - flex's Blog</title>
   <meta name="author" content="Zhaotian Wang">
 
   
@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://flexwang.github.io">
+  <link rel="canonical" href="http://flexwang.github.io/blog/2014/07/17/ubuntu14-dot-04shang-mesa3dde-bian-yi-yu-an-zhuang">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="flex's Blog" type="application/atom+xml">
@@ -65,15 +65,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/07/17/ubuntu14-dot-04shang-mesa3dde-bian-yi-yu-an-zhuang/">Ubuntu14.04上mesa3d的编译与安装</a></h1>
+      <h1 class="entry-title">Ubuntu14.04上mesa3d的编译与安装</h1>
     
     
       <p class="meta">
@@ -91,15 +88,15 @@
 
 <time datetime="2014-07-17T09:08:44-04:00" pubdate data-updated="true">Jul 17<sup>th</sup>, 2014</time>
         
-           | <a href="/blog/2014/07/17/ubuntu14-dot-04shang-mesa3dde-bian-yi-yu-an-zhuang/#disqus_thread"
-             data-disqus-identifier="http://flexwang.github.io/blog/2014/07/17/ubuntu14-dot-04shang-mesa3dde-bian-yi-yu-an-zhuang/">Comments</a>
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://flexwang.github.io">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>最近在做的一个项目需要使用mesa3d，在这里记录下编译安装mesa3d的过程。</p>
+<div class="entry-content"><p>最近在做的一个项目需要使用mesa3d，在这里记录下编译安装mesa3d的过程。</p>
 
 <h2>关于 mesa</h2>
 
@@ -172,22 +169,16 @@ sudo make install
 
 <p>至此mesa的编译与安装就成功了，在mesa目录下，我们可以使用git pull origin命令来获得最新版的mesa代码，并编译和安装。</p>
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/07/16/how-i-first-contribute-to-open-source/">How I First Contribute to Open Source</a></h1>
-    
-    
-      <p class="meta">
-        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Zhaotian Wang</span></span>
+
+      
 
 
 
@@ -199,89 +190,38 @@ sudo make install
   
 
 
-<time datetime="2014-07-16T13:17:53-04:00" pubdate data-updated="true">Jul 16<sup>th</sup>, 2014</time>
-        
-           | <a href="/blog/2014/07/16/how-i-first-contribute-to-open-source/#disqus_thread"
-             data-disqus-identifier="http://flexwang.github.io/blog/2014/07/16/how-i-first-contribute-to-open-source/">Comments</a>
-        
-      </p>
+<time datetime="2014-07-17T09:08:44-04:00" pubdate data-updated="true">Jul 17<sup>th</sup>, 2014</time>
+      
+
+
+    </p>
     
-  </header>
-
-
-  <div class="entry-content"><p>Guys, I am gonna tell you a story about how I first contribute to an Open source project. It may give you some hints on how to join one yourself.</p>
-
-<h2>Origin</h2>
-
-<p>In early June this year, I got a little bit tired of the work in my lab, so I decided to find something interesting to do. A few days before that, I came across the open source project <a href="http://appleseedhq.net/">Appleseed</a> when I explored on github. It is a physically-based renderer designed for production rendering, and my main field of interest is graphics especially rendering. So I think, why not join in to make some contribution?</p>
-
-<h2>Build</h2>
-
-<p>Things are always hardest at the beginning. For me, the beginning is to build the project. I think it is always a tedious job to build a project out of a bunch of source code. Dependencies may be missing, source codes may not get along with your compiler. Those are the common problems you might encounter. And you can only get it right with enough patience and carefulness and Google. Thanks to the developers of Appleseed, there is <a href="https://github.com/appleseedhq/appleseed/wiki/Building-appleseed">detailed build instructions</a> on github.</p>
-
-<p>The biggest problem occured when building Qt 4.8.x. Since the official website of Qt does not provide a working installation of Qt 4.8.x for Visual Studio 2012, I have to build it myself. However, according to my experience and <a href="http://qt-project.org/forums/viewthread/29038">this post</a>, there will be some error when building Qt 4.8.x for Visual Studio 2012. I fixed it by modifying the Qt source code according to google.</p>
-
-<p>During this process, I learned about:</p>
-
-<ul>
-<li>Basic rules of CMakeList</li>
-<li>Always keep the coherency between the static library and the target project. For example, it is not gonna work if you link a VS2012 project to a static library built with VS2010.</li>
-</ul>
-
-
-<h2>Intoduce myself</h2>
-
-<p>After successfully building the project on my computer, I made a brief introduction to the developers on <a href="http://groups.google.com/group/appleseed-dev">appleseed-dev Google Group</a> and talked about my interest on developing the project.</p>
-
-<h2>Pick an issue</h2>
-
-<p>Contributors of the project are really nice and they offered me some issues and there is also an <a href="https://github.com/appleseedhq/appleseed/issues">issue tracker</a> on github. What I need to do is to pick one as a starter.</p>
-
-<p>I think I&rsquo;d better deal with some small issue to get hands dirty before handling something that might involve multiple parts of the project. So I choose <a href="https://github.com/appleseedhq/appleseed/issues/210">this one</a>. It is about adding the ablity of defining arbitrary shape of diphragm. And the shape of diphragm will eventually effect on the <a href="http://en.wikipedia.org/wiki/Bokeh">bokeh effect</a> of the rendering result. It is insteresing and not hard to implement.</p>
-
-<h2>Code away</h2>
-
-<p>Coding is fun^_^. And thanks to the multiply unit tests, test scenes and code samples in the source code and git, I get along quite well. When I have a problem, I can always effectively communicate with other contributors on Google group. And I also reported a bug during the process.</p>
-
-<h2>Pull request</h2>
-
-<p>When I thought I have finished implementing the issue, I committed my code and made a pull request. However, it is not merged by the owner because of the coding convention issue. It is always important to follow the coding conventions of the project as a contributor. Those conventions might include:</p>
-
-<ul>
-<li>Naming conventions</li>
-<li>Tab width and whether replace tab with spaces</li>
-<li>The use of space</li>
-<li>Where should the curly braces go</li>
-</ul>
-
-
-<p>Thanks to git, I can easily view the changes and revert them. I modified my code to adapt the coding conventions of the project and made a PR again and it is now merged into the master branch of the project.</p>
-
-<h2>Appendix</h2>
-
-<p>Git is a powerful tool for jointly development. Here is some common used git commands, hope it might help.</p>
-
-<pre><code>$ git branch &lt;branch-name&gt; #create a branch
-$ git checkout &lt;branch-name&gt; #Switch to a branch
-$ git remote add &lt;remote-name&gt; &lt;remote-url&gt; #add a new remote
-$ git fetch &lt;remote-name&gt; #fetch from
-$ git merge &lt;remote-name&gt;/&lt;branch-name&gt; #merge the changes
-</code></pre>
-
-<p>It is always a good idea to switch to a new branch when you are about to code a new issue.</p>
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://flexwang.github.io/blog/2014/07/17/ubuntu14-dot-04shang-mesa3dde-bian-yi-yu-an-zhuang/" data-via="" data-counturl="http://flexwang.github.io/blog/2014/07/17/ubuntu14-dot-04shang-mesa3dde-bian-yi-yu-an-zhuang/" >Tweet</a>
+  
+  
+  
 </div>
-  
-  
 
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/07/16/how-i-first-contribute-to-open-source/" title="Previous Post: How I first contribute to Open source">&laquo; How I first contribute to Open source</a>
+      
+      
+    </p>
+  </footer>
+</article>
 
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
+  </section>
+
+</div>
+
 <aside class="sidebar">
   
     <section>
@@ -306,6 +246,7 @@ $ git merge &lt;remote-name&gt;/&lt;branch-name&gt; #merge the changes
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -320,7 +261,10 @@ $ git merge &lt;remote-name&gt;/&lt;branch-name&gt; #merge the changes
       var disqus_shortname = 'flexsblog';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://flexwang.github.io/blog/2014/07/17/ubuntu14-dot-04shang-mesa3dde-bian-yi-yu-an-zhuang/';
+        var disqus_url = 'http://flexwang.github.io/blog/2014/07/17/ubuntu14-dot-04shang-mesa3dde-bian-yi-yu-an-zhuang/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
