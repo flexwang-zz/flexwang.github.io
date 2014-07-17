@@ -106,8 +106,9 @@
 <h2>安装 LLVM/Clang 3.3</h2>
 
 <p><a href="http://www.llvm.org/">LLVM/Clang</a>是构架编译器(compiler)的框架系统，以C++编写而成，用于优化以任意程序语言编写的程序的编译时间(compile-time)、链接时间(link-time)、运行时间(run-time)以及空闲时间(idle-time)，它是编译mesa的依赖之一。
-目前，LLVM/Clang的最新版为3.4，在Ubuntu 14.04上，我们可以直接使用 sudo apt-get install llvm来安装最新版LLVM/Clang。但是，由于LLVM 3.4的一些bug会对之后的工作造成一定的麻烦，这里，我们自行编译、安装较为稳定的LLVM 3.3。
-具体的，首先，我们从<a href="http://www.llvm.org/releases/">http://www.llvm.org/releases/</a> 上下载LLVM 3.3 和 Clang 3.3的源代码。源代码下载完成后，进行解压缩，然后将Clang 3.3的源代码目录命名为clang，并移动到llvm源代码目录下的tools目录下。具体的目录关系应如下所示：</p>
+目前，LLVM/Clang的最新版为3.4，在Ubuntu 14.04上，我们可以直接使用 sudo apt-get install llvm来安装最新版LLVM/Clang。但是，由于LLVM 3.4的一些bug会对之后的工作造成一定的麻烦，这里，我们自行编译、安装较为稳定的LLVM 3.3。</p>
+
+<p>具体的，首先，我们从<a href="http://www.llvm.org/releases/">http://www.llvm.org/releases/</a> 上下载LLVM 3.3 和 Clang 3.3的源代码。源代码下载完成后，进行解压缩，然后将Clang 3.3的源代码目录命名为clang，并移动到llvm源代码目录下的tools目录下。具体的目录关系应如下所示：</p>
 
 <pre><code>&lt;llvmsrc&gt;
     tools
