@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Ubuntu | flex's Blog]]></title>
+  <link href="http://flexwang.github.io/blog/categories/ubuntu/atom.xml" rel="self"/>
+  <link href="http://flexwang.github.io/"/>
+  <updated>2014-07-17T09:57:59-04:00</updated>
+  <id>http://flexwang.github.io/</id>
+  <author>
+    <name><![CDATA[Zhaotian Wang]]></name>
+    <email><![CDATA[zhaotianzju@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Ubuntu14.04上mesa3d的编译与安装]]></title>
+    <link href="http://flexwang.github.io/blog/2014/07/17/ubuntu14-dot-04shang-mesa3dde-bian-yi-yu-an-zhuang/"/>
+    <updated>2014-07-17T09:08:44-04:00</updated>
+    <id>http://flexwang.github.io/blog/2014/07/17/ubuntu14-dot-04shang-mesa3dde-bian-yi-yu-an-zhuang</id>
+    <content type="html"><![CDATA[<p>最近在做的一个项目需要使用mesa3d，在这里记录下编译安装mesa3d的过程。</p>
+
+<h2>关于 mesa</h2>
+
+<p><a href="http://www.mesa3d.org/">mesa</a>是一个开源的OpenGL的实现。它被广泛用于包括X-Windows在内的各种渲染系统中。
+现在，我们将在Ubuntu 14.04上编译并安装最新版mesa。</p>
+
+<h2>安装 LLVM/Clang 3.3</h2>
+
+<p><a href="http://www.llvm.org/">LLVM/Clang</a>是构架编译器(compiler)的框架系统，以C++编写而成，用于优化以任意程序语言编写的程序的编译时间(compile-time)、链接时间(link-time)、运行时间(run-time)以及空闲时间(idle-time)，它是编译mesa的依赖之一。
+目前，LLVM/Clang的最新版为3.4，在Ubuntu 14.04上，我们可以直接使用 sudo apt-get install llvm来安装最新版LLVM/Clang。但是，由于LLVM 3.4的一些bug会对之后的工作造成一定的麻烦，这里，我们自行编译、安装较为稳定的LLVM 3.3。
+具体的，首先，我们从<a href="http://www.llvm.org/releases/">http://www.llvm.org/releases/</a> 上下载LLVM 3.3 和 Clang 3.3的源代码。源代码下载完成后，进行解压缩，然后将Clang 3.3的源代码目录命名为clang，并移动到llvm源代码目录下的tools目录下。具体的目录关系应如下所示：</p>
+
+<pre><code>&lt;llvmsrc&gt;
+    tools
+        clang
+</code></pre>
+
+<p>接下来我们使用configure来配置生成llvm的Makefile文件，然后就可以进行编译与安装。注意，这里llvm之后要被mesa所link，所以在配置是应开启&mdash;enable-shared选项。</p>
+
+<pre><code>cd llvm-3.3.src
+./configure --enable-shared=yes
+make
+sudo make install
+</code></pre>
+
+<h2>安装 libdrm-2.4.54</h2>
+
+<p>最新版的mesa的编译需要高于2.4.54的libdrm_radeon库，我们使用与上文介绍的相同的方法来编译和安装。
+首先，从<a href="http://dri.freedesktop.org/libdrm/">http://dri.freedesktop.org/libdrm/</a> 下载libdrm 2.4.54的源代码，解压缩后，运行如下命令。</p>
+
+<pre><code>cd libdrm-2.4.54
+./configure
+make
+sudo make install
+</code></pre>
+
+<h2>安装其他依赖包</h2>
+
+<p>mesa的编译还需要其他依赖包，如果这些包缺失，mesa的配置将会失败，我们可以从configure的错误信息中得出缺失的包的名字，然后自行安装，以下罗列了安装一些可能缺失的包的命令（Ubuntu下）。</p>
+
+<pre><code>sudo apt-get install x11proto-gl-dev
+sudo apt-get install  x11proto-dri2-dev
+sudo apt-get install  x11proto-dri3-dev
+sudo apt-get install  x11proto-present-dev
+sudo apt-get install libxdamage-dev
+sudo apt-get install libxext-dev
+sudo apt-get install libx11-xcb-dev
+sudo apt-get install libxcb-glx0-dev
+sudo apt-get install libxcb-dri2-0-dev
+sudo apt-get install libxcb-dri3-dev
+sudo apt-get install libxcb-present-dev
+sudo apt-get install libxshmfence-dev
+sudo apt-get install libudev-dev
+sudo apt-get install autoreconf
+sudo apt-get install libtool
+sudo apt-get install expat
+sudo apt-get install libexpat1-dev
+</code></pre>
+
+<h2>获取mesa的最新源代码</h2>
+
+<p>我们使用git（git可以使用sudo apt-get install git来安装）来获取mesa的最新源代码。之后就可以进行配置，编译与安装。 需要注意的是，git master branch所获得的源代码中并不包含生成好的configure文件，作为替代，我们运行autogen.sh命令来生成和运行configure，因此configure的配置选项也应该加入到autogen.sh命令后。</p>
+
+<pre><code>git clone git://anongit.freedesktop.org/git/mesa/mesa
+cd mesa
+sudo ./autogen.sh --enable-gbm --enable-glx-tls
+make
+sudo make install
+</code></pre>
+
+<p>至此mesa的编译与安装就成功了，在mesa目录下，我们可以使用git pull origin命令来获得最新版的mesa代码，并编译和安装。</p>
+]]></content>
+  </entry>
+  
+</feed>
