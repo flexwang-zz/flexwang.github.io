@@ -4,7 +4,7 @@
   <title><![CDATA[Category: English | flex's Blog]]></title>
   <link href="http://flexwang.github.io/blog/categories/english/atom.xml" rel="self"/>
   <link href="http://flexwang.github.io/"/>
-  <updated>2014-07-17T10:24:57-04:00</updated>
+  <updated>2014-07-18T08:16:45-04:00</updated>
   <id>http://flexwang.github.io/</id>
   <author>
     <name><![CDATA[Zhaotian Wang]]></name>
@@ -46,7 +46,7 @@
 
 <p>Contributors of the project are really nice and they offered me some issues and there is also an <a href="https://github.com/appleseedhq/appleseed/issues">issue tracker</a> on github. What I need to do is to pick one as a starter.</p>
 
-<p>I think I&rsquo;d better deal with some small issue to get hands dirty before handling something that might involve multiple parts of the project. So I choose <a href="https://github.com/appleseedhq/appleseed/issues/210">this one</a>. It is about adding the ablity of defining arbitrary shape of diphragm. And the shape of diphragm will eventually effect on the <a href="http://en.wikipedia.org/wiki/Bokeh">bokeh effect</a> of the rendering result. It is insteresing and not hard to implement.</p>
+<p>I think I&rsquo;d better deal with some small issue to get hands dirty before handling something that might involve multiple parts of the project. So I choose <a href="https://github.com/appleseedhq/appleseed/issues/210">this one</a>. It is about adding the ablity of defining arbitrary shape of diphragm. And the shape of diphragm will eventually effect the <a href="http://en.wikipedia.org/wiki/Bokeh">bokeh</a> of the rendering result. It is insteresing and not hard to implement.</p>
 
 <h2>Code away</h2>
 
