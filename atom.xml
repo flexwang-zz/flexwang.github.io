@@ -4,7 +4,7 @@
   <title><![CDATA[flex's Blog]]></title>
   <link href="http://flexwang.github.io/atom.xml" rel="self"/>
   <link href="http://flexwang.github.io/"/>
-  <updated>2014-07-18T23:27:25-04:00</updated>
+  <updated>2014-07-18T23:47:07-04:00</updated>
   <id>http://flexwang.github.io/</id>
   <author>
     <name><![CDATA[Zhaotian Wang]]></name>
@@ -84,99 +84,193 @@ cr = cairo_create (surface);
 
 <h3>绘制一个矩形到rectangle.png图片上。</h3>
 
-<pre><code>#include &lt;cairo.h&gt;
+<figure class='code'><figcaption><span>cairo_rectangle.c</span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cp">#include &lt;cairo.h&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">int</span>
+</span><span class='line'><span class="nf">main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="kt">cairo_surface_t</span> <span class="o">*</span><span class="n">surface</span><span class="p">;</span>
+</span><span class='line'>    <span class="kt">cairo_t</span> <span class="o">*</span><span class="n">cr</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">640</span><span class="p">;</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">480</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">surface</span> <span class="o">=</span> <span class="n">cairo_image_surface_create</span> <span class="p">(</span><span class="n">CAIRO_FORMAT_ARGB32</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">cr</span> <span class="o">=</span> <span class="n">cairo_create</span> <span class="p">(</span><span class="n">surface</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="cm">/* Drawing code goes here */</span>
+</span><span class='line'>    <span class="n">cairo_set_line_width</span> <span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">cairo_set_source_rgb</span> <span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">cairo_rectangle</span> <span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="n">width</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="n">height</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">height</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">cairo_stroke</span> <span class="p">(</span><span class="n">cr</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="cm">/* Write output and clean up */</span>
+</span><span class='line'>    <span class="n">cairo_surface_write_to_png</span> <span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="s">&quot;rectangle.png&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">cairo_destroy</span> <span class="p">(</span><span class="n">cr</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">cairo_surface_destroy</span> <span class="p">(</span><span class="n">surface</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-int
-main (int argc, char *argv[])
-{
-    cairo_surface_t *surface;
-    cairo_t *cr;
 
-    int width = 640;
-    int height = 480;
-    surface = cairo_image_surface_create (CAIRO_FORMAT_ARGB32, width, height);
-    cr = cairo_create (surface);
-
-    /* Drawing code goes here */
-    cairo_set_line_width (cr, 10);
-    cairo_set_source_rgb (cr, 0, 0, 0);
-    cairo_rectangle (cr, width/4, height/4, width/2, height/2);
-    cairo_stroke (cr);
-
-    /* Write output and clean up */
-    cairo_surface_write_to_png (surface, "rectangle.png");
-    cairo_destroy (cr);
-    cairo_surface_destroy (surface);
-
-    return 0;
-}
-</code></pre>
+<p></p>
 
 <h3>绘制helloworld到helloworld.pdf上。</h3>
 
-<pre><code>#include &lt;cairo.h&gt;
-#include &lt;cairo-pdf.h&gt;
-int
-main (int argc, char *argv[])
-{
-    cairo_surface_t *surface;
-    cairo_t *cr;
-    cairo_text_extents_t te;
+<figure class='code'><figcaption><span>cairo_pdf.c</span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cp">#include &lt;cairo.h&gt;</span>
+</span><span class='line'><span class="cp">#include &lt;cairo-pdf.h&gt;</span>
+</span><span class='line'><span class="kt">int</span>
+</span><span class='line'><span class="nf">main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="kt">cairo_surface_t</span> <span class="o">*</span><span class="n">surface</span><span class="p">;</span>
+</span><span class='line'>    <span class="kt">cairo_t</span> <span class="o">*</span><span class="n">cr</span><span class="p">;</span>
+</span><span class='line'>    <span class="kt">cairo_text_extents_t</span> <span class="n">te</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>   <span class="cm">/* Prepare drawing area */</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">120</span><span class="p">;</span>
+</span><span class='line'>      
+</span><span class='line'>    <span class="n">surface</span> <span class="o">=</span> <span class="n">cairo_pdf_surface_create</span> <span class="p">(</span><span class="s">&quot;helloworld.pdf&quot;</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">cr</span> <span class="o">=</span> <span class="n">cairo_create</span> <span class="p">(</span><span class="n">surface</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="cm">/* Drawing code goes here */</span>
+</span><span class='line'>    <span class="n">cairo_set_source_rgb</span> <span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">cairo_select_font_face</span> <span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="s">&quot;Georgia&quot;</span><span class="p">,</span> <span class="n">CAIRO_FONT_SLANT_NORMAL</span><span class="p">,</span> <span class="n">CAIRO_FONT_WEIGHT_BOLD</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">cairo_set_font_size</span> <span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">cairo_text_extents</span> <span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="s">&quot;helloworld&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">te</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">cairo_move_to</span> <span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="n">width</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">te</span><span class="p">.</span><span class="n">width</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">te</span><span class="p">.</span><span class="n">x_bearing</span><span class="p">,</span>
+</span><span class='line'>          <span class="n">height</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">te</span><span class="p">.</span><span class="n">height</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">te</span><span class="p">.</span><span class="n">y_bearing</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">cairo_show_text</span> <span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="s">&quot;helloworld&quot;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">cairo_destroy</span> <span class="p">(</span><span class="n">cr</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">cairo_surface_destroy</span> <span class="p">(</span><span class="n">surface</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-    /* Prepare drawing area */
-    int width = 200;
-    int height = 120;
 
-    surface = cairo_pdf_surface_create ("helloworld.pdf", width, height);
-    cr = cairo_create (surface);
-
-    /* Drawing code goes here */
-    cairo_set_source_rgb (cr, 0.0, 0.0, 0.0);
-    cairo_select_font_face (cr, "Georgia",
-            CAIRO_FONT_SLANT_NORMAL, CAIRO_FONT_WEIGHT_BOLD);
-    cairo_set_font_size (cr, 20);
-    cairo_text_extents (cr, "helloworld", &amp;te);
-    cairo_move_to (cr, width/2 - te.width / 2 - te.x_bearing,
-            height/2 - te.height / 2 - te.y_bearing);
-    cairo_show_text (cr, "helloworld");
-
-    cairo_destroy (cr);
-    cairo_surface_destroy (surface);
-
-    return 0;
-}
-</code></pre>
+<p></p>
 
 <h3>使用cairo_scale绘制缩小的矩形到rectangle_scaled.png上</h3>
 
-<pre><code>#include &lt;cairo.h&gt;
+<figure class='code'><figcaption><span>cairo_rectangle_scaled.c</span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cp">#include &lt;cairo.h&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">int</span>
+</span><span class='line'><span class="nf">main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="kt">cairo_surface_t</span> <span class="o">*</span><span class="n">surface</span><span class="p">;</span>
+</span><span class='line'>    <span class="kt">cairo_t</span> <span class="o">*</span><span class="n">cr</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">640</span><span class="p">;</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">480</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">surface</span> <span class="o">=</span> <span class="n">cairo_image_surface_create</span> <span class="p">(</span><span class="n">CAIRO_FORMAT_ARGB32</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">cr</span> <span class="o">=</span> <span class="n">cairo_create</span> <span class="p">(</span><span class="n">surface</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">cairo_scale</span> <span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">);</span>
+</span><span class='line'>    <span class="cm">/* Drawing code goes here */</span>
+</span><span class='line'>    <span class="n">cairo_set_line_width</span> <span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">cairo_set_source_rgb</span> <span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">cairo_rectangle</span> <span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="n">width</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="n">height</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">height</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">cairo_stroke</span> <span class="p">(</span><span class="n">cr</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="cm">/* Write output and clean up */</span>
+</span><span class='line'>    <span class="n">cairo_surface_write_to_png</span> <span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="s">&quot;rectangle_scaled.png&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">cairo_destroy</span> <span class="p">(</span><span class="n">cr</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">cairo_surface_destroy</span> <span class="p">(</span><span class="n">surface</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-int
-main (int argc, char *argv[])
-{
-    cairo_surface_t *surface;
-    cairo_t *cr;
 
-    int width = 640;
-    int height = 480;
-    surface = cairo_image_surface_create (CAIRO_FORMAT_ARGB32, width, height);
-    cr = cairo_create (surface);
-
-    cairo_scale (cr, 0.5, 0.5);
-    /* Drawing code goes here */
-    cairo_set_line_width (cr, 10);
-    cairo_set_source_rgb (cr, 0, 0, 0);
-    cairo_rectangle (cr, width/4, height/4, width/2, height/2);
-    cairo_stroke (cr);
-
-    /* Write output and clean up */
-    cairo_surface_write_to_png (surface, "rectangle_scaled.png");
-    cairo_destroy (cr);
-    cairo_surface_destroy (surface);
-
-    return 0;
-}
-</code></pre>
+<p></p>
 
 <h3>gcc编译</h3>
 
