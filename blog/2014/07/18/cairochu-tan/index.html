@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>flex's Blog</title>
+  <title>Cairo初探 - flex's Blog</title>
   <meta name="author" content="Zhaotian Wang">
 
   
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://flexwang.github.io">
+  <link rel="canonical" href="http://flexwang.github.io/blog/2014/07/18/cairochu-tan">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="flex's Blog" type="application/atom+xml">
@@ -64,15 +64,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/07/18/cairochu-tan/">Cairo初探</a></h1>
+      <h1 class="entry-title">Cairo初探</h1>
     
     
       <p class="meta">
@@ -90,15 +87,15 @@
 
 <time datetime="2014-07-18T23:21:37-04:00" pubdate data-updated="true">Jul 18<sup>th</sup>, 2014</time>
         
-           | <a href="/blog/2014/07/18/cairochu-tan/#disqus_thread"
-             data-disqus-identifier="http://flexwang.github.io/blog/2014/07/18/cairochu-tan/">Comments</a>
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://flexwang.github.io">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h2>关于Cairo</h2>
+<div class="entry-content"><h2>关于Cairo</h2>
 
 <p><a href="http://cairographics.org/">Cairo</a>是非常流行的开源2D图形渲染引擎库，它支持包括X-Windos，Win32，图像，pdf在内的各种输出设备。目前，Cairo已被广泛的使用在多个平台上来渲染图形界面，包括Firefox/Webkit-EFL/GTK+/Poppler等等。</p>
 
@@ -270,133 +267,16 @@ main (int argc, char *argv[])
 <pre><code>gcc -o cairotest $(pkg-config --cflags --libs cairo) cairotest.c
 </code></pre>
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/07/17/ubuntu14-dot-04shang-mesa3dde-bian-yi-yu-an-zhuang/">Ubuntu14.04上mesa3d的编译与安装</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
   
 
+<span class="byline author vcard">Posted by <span class="fn">Zhaotian Wang</span></span>
 
-<time datetime="2014-07-17T09:08:44-04:00" pubdate data-updated="true">Jul 17<sup>th</sup>, 2014</time>
-        
-           | <a href="/blog/2014/07/17/ubuntu14-dot-04shang-mesa3dde-bian-yi-yu-an-zhuang/#disqus_thread"
-             data-disqus-identifier="http://flexwang.github.io/blog/2014/07/17/ubuntu14-dot-04shang-mesa3dde-bian-yi-yu-an-zhuang/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>最近在做的一个项目需要使用mesa3d，在这里记录下编译安装mesa3d的过程。</p>
-
-<h2>关于 mesa</h2>
-
-<p><a href="http://www.mesa3d.org/">mesa</a>是一个开源的OpenGL的实现。它被广泛用于包括X-Windows在内的各种渲染系统中。
-现在，我们将在Ubuntu 14.04上编译并安装最新版mesa。</p>
-
-<h2>安装 LLVM/Clang 3.3</h2>
-
-<p><a href="http://www.llvm.org/">LLVM/Clang</a>是构架编译器(compiler)的框架系统，以C++编写而成，用于优化以任意程序语言编写的程序的编译时间(compile-time)、链接时间(link-time)、运行时间(run-time)以及空闲时间(idle-time)，它是编译mesa的依赖之一。
-目前，LLVM/Clang的最新版为3.4，在Ubuntu 14.04上，我们可以直接使用 sudo apt-get install llvm来安装最新版LLVM/Clang。但是，由于LLVM 3.4的一些bug会对之后的工作造成一定的麻烦，这里，我们自行编译、安装较为稳定的LLVM 3.3。</p>
-
-<p>具体的，首先，我们从<a href="http://www.llvm.org/releases/">http://www.llvm.org/releases/</a> 上下载LLVM 3.3 和 Clang 3.3的源代码。源代码下载完成后，进行解压缩，然后将Clang 3.3的源代码目录命名为clang，并移动到llvm源代码目录下的tools目录下。具体的目录关系应如下所示：</p>
-
-<pre><code>&lt;llvmsrc&gt;
-    tools
-        clang
-</code></pre>
-
-<p>接下来我们使用configure来配置生成llvm的Makefile文件，然后就可以进行编译与安装。注意，这里llvm之后要被mesa所link，所以在配置是应开启&mdash;enable-shared选项。</p>
-
-<pre><code>cd llvm-3.3.src
-./configure --enable-shared=yes
-make
-sudo make install
-</code></pre>
-
-<h2>安装 libdrm-2.4.54</h2>
-
-<p>最新版的mesa的编译需要高于2.4.54的libdrm_radeon库，我们使用与上文介绍的相同的方法来编译和安装。
-首先，从<a href="http://dri.freedesktop.org/libdrm/">http://dri.freedesktop.org/libdrm/</a> 下载libdrm 2.4.54的源代码，解压缩后，运行如下命令。</p>
-
-<pre><code>cd libdrm-2.4.54
-./configure
-make
-sudo make install
-</code></pre>
-
-<h2>安装其他依赖包</h2>
-
-<p>mesa的编译还需要其他依赖包，如果这些包缺失，mesa的配置将会失败，我们可以从configure的错误信息中得出缺失的包的名字，然后自行安装，以下罗列了安装一些可能缺失的包的命令（Ubuntu下）。</p>
-
-<pre><code>sudo apt-get install x11proto-gl-dev
-sudo apt-get install  x11proto-dri2-dev
-sudo apt-get install  x11proto-dri3-dev
-sudo apt-get install  x11proto-present-dev
-sudo apt-get install libxdamage-dev
-sudo apt-get install libxext-dev
-sudo apt-get install libx11-xcb-dev
-sudo apt-get install libxcb-glx0-dev
-sudo apt-get install libxcb-dri2-0-dev
-sudo apt-get install libxcb-dri3-dev
-sudo apt-get install libxcb-present-dev
-sudo apt-get install libxshmfence-dev
-sudo apt-get install libudev-dev
-sudo apt-get install autoreconf
-sudo apt-get install libtool
-sudo apt-get install expat
-sudo apt-get install libexpat1-dev
-</code></pre>
-
-<h2>获取mesa的最新源代码</h2>
-
-<p>我们使用git（git可以使用sudo apt-get install git来安装）来获取mesa的最新源代码。之后就可以进行配置，编译与安装。 需要注意的是，git master branch所获得的源代码中并不包含生成好的configure文件，作为替代，我们运行autogen.sh命令来生成和运行configure，因此configure的配置选项也应该加入到autogen.sh命令后。</p>
-
-<pre><code>git clone git://anongit.freedesktop.org/git/mesa/mesa
-cd mesa
-sudo ./autogen.sh --enable-gbm --enable-glx-tls
-make
-sudo make install
-</code></pre>
-
-<p>至此mesa的编译与安装就成功了，在mesa目录下，我们可以使用git pull origin命令来获得最新版的mesa代码，并编译和安装。</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/07/10/how-i-first-contribute-to-open-source/">How I First Contribute to Open Source</a></h1>
-    
-    
-      <p class="meta">
-        
 
 
 
@@ -408,89 +288,62 @@ sudo make install
   
 
 
-<time datetime="2014-07-10T13:17:53-04:00" pubdate data-updated="true">Jul 10<sup>th</sup>, 2014</time>
-        
-           | <a href="/blog/2014/07/10/how-i-first-contribute-to-open-source/#disqus_thread"
-             data-disqus-identifier="http://flexwang.github.io/blog/2014/07/10/how-i-first-contribute-to-open-source/">Comments</a>
-        
-      </p>
+<time datetime="2014-07-18T23:21:37-04:00" pubdate data-updated="true">Jul 18<sup>th</sup>, 2014</time>
+      
+
+
+    </p>
     
-  </header>
-
-
-  <div class="entry-content"><p>Guys, I am gonna tell you a story about how I first contribute to an Open source project. It may give you some hints on how to join one yourself.</p>
-
-<h2>Origin</h2>
-
-<p>In early June this year, I got a little bit tired of the work in my lab, so I decided to find something interesting to do. A few days before that, I came across the open source project <a href="http://appleseedhq.net/">Appleseed</a> when I explored github. It is a physically-based renderer designed for production rendering, and my main field of interest is graphics especially rendering. So I think, why not join in to make some contribution?</p>
-
-<h2>Build</h2>
-
-<p>Things are always hardest at the beginning. For me, the beginning is to build the project. I think it is always a tedious job to build a project out of a bunch of source code. Dependencies may be missing, source codes may not get along with your compiler. Those are the common problems you might encounter. And you can only get it right with enough patience and carefulness and Google. Thanks to the developers of Appleseed, there is <a href="https://github.com/appleseedhq/appleseed/wiki/Building-appleseed">detailed build instructions</a> on github.</p>
-
-<p>The biggest problem occured when building Qt 4.8.x. Since the official website of Qt does not provide a working installation of Qt 4.8.x for Visual Studio 2012, I have to build it myself. However, according to my experience and <a href="http://qt-project.org/forums/viewthread/29038">this post</a>, there will be some error when building Qt 4.8.x for Visual Studio 2012. I fixed it by modifying the Qt source code according to google.</p>
-
-<p>During this process, I learned about:</p>
-
-<ul>
-<li>Basic rules of CMakeList</li>
-<li>Always keep the coherency between the static library and the target project. For example, it is not gonna work if you link a VS2012 project to a static library built with VS2010.</li>
-</ul>
-
-
-<h2>Intoduce myself</h2>
-
-<p>After successfully building the project on my computer, I made a brief introduction to the developers on <a href="http://groups.google.com/group/appleseed-dev">appleseed-dev Google Group</a> and talked about my interest on developing the project.</p>
-
-<h2>Pick an issue</h2>
-
-<p>Contributors of the project are really nice and they offered me some issues and there is also an <a href="https://github.com/appleseedhq/appleseed/issues">issue tracker</a> on github. What I need to do is to pick one as a starter.</p>
-
-<p>I think I&rsquo;d better deal with some small issue to get hands dirty before handling something that might involve multiple parts of the project. So I choose <a href="https://github.com/appleseedhq/appleseed/issues/210">this one</a>. It is about adding the ablity of defining arbitrary shape of diphragm. And the shape of diphragm will eventually effect the <a href="http://en.wikipedia.org/wiki/Bokeh">bokeh</a> of the rendering result. It is insteresing and not hard to implement.</p>
-
-<h2>Code away</h2>
-
-<p>Coding is fun^_^. And thanks to the multiply unit tests, test scenes and code samples in the source code and git, I get along quite well. When I have a problem, I can always effectively communicate with other contributors on Google group. And I also reported a bug during the process.</p>
-
-<h2>Pull request</h2>
-
-<p>When I thought I have finished implementing the issue, I committed my code and made a pull request. However, it is not merged by the owner because of the coding convention issue. It is always important to follow the coding conventions of the project as a contributor. Those conventions might include:</p>
-
-<ul>
-<li>Naming conventions</li>
-<li>Tab width and whether replace tab with spaces</li>
-<li>The use of space</li>
-<li>Where should the curly braces go</li>
-</ul>
-
-
-<p>Thanks to git, I can easily view the changes and revert them. I modified my code to adapt the coding conventions of the project and made a PR again and it is now merged into the master branch of the project.</p>
-
-<h2>Appendix</h2>
-
-<p>Git is a powerful tool for jointly development. Here is some common used git commands, hope it might help.</p>
-
-<pre><code>$ git branch &lt;branch-name&gt; #create a branch
-$ git checkout &lt;branch-name&gt; #Switch to a branch
-$ git remote add &lt;remote-name&gt; &lt;remote-url&gt; #add a new remote
-$ git fetch &lt;remote-name&gt; #fetch from
-$ git merge &lt;remote-name&gt;/&lt;branch-name&gt; #merge the changes
-</code></pre>
-
-<p>It is always a good idea to switch to a new branch when you are about to code a new issue.</p>
+      <div class="sharing">
+    
+    <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://flexwang.github.io/blog/2014/07/18/cairochu-tan/"
+       data-via="" data-counturl="http://flexwang.github.io/blog/2014/07/18/cairochu-tan/">Tweet</a>
+    
+    
+    
+    
+    <script type="text/javascript" charset="utf-8">
+    (function(){
+      var _w = 72 , _h = 16;
+      var param = {
+        url:location.href,
+        type:'3',
+        count:'1', /**是否显示分享数，1显示(可选)*/
+        appkey:'', /**您申请的应用appkey,显示分享来源(可选)*/
+        title:"http://flexwang.github.io/blog/2014/07/18/cairochu-tan/",/**分享的文字内容(可选，默认为所在页面的title)*/
+        pic:'', /**分享图片的路径(可选)*/
+        ralateUid:"3239998631", /**关联用户的UID，分享微博会@该用户(可选)*/
+    	language:'zh_cn', /**设置语言，zh_cn|zh_tw(可选)*/
+        rnd:new Date().valueOf()
+      }
+      var temp = [];
+      for( var p in param ){
+        temp.push(p + '=' + encodeURIComponent( param[p] || '' ) )
+      }
+      document.write('<iframe allowTransparency="true" frameborder="0" scrolling="no" src="http://hits.sinajs.cn/A1/weiboshare.html?' + temp.join('&') + '" width="'+ _w+'" height="'+_h+'"></iframe>')
+    })()
+    </script>
+    
 </div>
-  
-  
 
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/07/17/ubuntu14-dot-04shang-mesa3dde-bian-yi-yu-an-zhuang/" title="Previous Post: Ubuntu14.04上mesa3d的编译与安装">&laquo; Ubuntu14.04上mesa3d的编译与安装</a>
+      
+      
+    </p>
+  </footer>
+</article>
 
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
+  </section>
+
+</div>
+
 <aside class="sidebar">
   
     <section>
@@ -530,6 +383,7 @@ $ git merge &lt;remote-name&gt;/&lt;branch-name&gt; #merge the changes
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -544,7 +398,10 @@ $ git merge &lt;remote-name&gt;/&lt;branch-name&gt; #merge the changes
       var disqus_shortname = 'flexsblog';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://flexwang.github.io/blog/2014/07/18/cairochu-tan/';
+        var disqus_url = 'http://flexwang.github.io/blog/2014/07/18/cairochu-tan/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
