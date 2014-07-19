@@ -4,7 +4,7 @@
   <title><![CDATA[flex's Blog]]></title>
   <link href="http://flexwang.github.io/atom.xml" rel="self"/>
   <link href="http://flexwang.github.io/"/>
-  <updated>2014-07-19T00:08:25-04:00</updated>
+  <updated>2014-07-19T01:05:19-04:00</updated>
   <id>http://flexwang.github.io/</id>
   <author>
     <name><![CDATA[Zhaotian Wang]]></name>
@@ -53,12 +53,11 @@ sudo make install
 
 <h3>遮盖（mask）</h3>
 
-<p>Mask相当于我们在绘图过程，用一张挖空了某些部分的纸遮挡在画布上。这样，在绘图过程中，只有挖空的部分会被我们所使用的源影响到，其余本分不受影响。</p>
+<p>Mask相当于我们在绘图过程，用一张挖空了某些部分的纸遮挡在画布上。这样，在绘图过程中，只有挖空的部分会被我们所使用的源影响到，其余部分不受影响。</p>
 
 <h3>路径（path）</h3>
 
-<p>Path是指Cairo的绘制表面上一些虚拟的路径，它可能是一条线段，一个闭合的四边形，也可能是更加复杂的曲线。Path可以有Cairo的函数（在Cairo称为verb）所创建。但是，由于Path只是虚拟的路径，所以对Path的创建并不代表对表面绘制。接下来，我们还需要使用绘制函数（Cairo里称为drawing verb)进行绘制。比如，我们可以通过cairo_rectangle函数创建一个闭合的长方形的路径，然后通过cairo_fill函数填充这个长方形o。
-来表示。</p>
+<p>Path是指Cairo的绘制表面上一些虚拟的路径，它可能是一条线段，一个闭合的四边形，也可能是更加复杂的曲线。Path可以由Cairo的函数（在Cairo中被称为verb）所创建。但是，由于Path只是虚拟的路径，所以对Path的创建并不代表对表面绘制。接下来，我们还需要使用绘制函数（Cairo里称为drawing verb)进行绘制。比如，我们可以通过cairo_rectangle函数创建一个闭合的长方形的路径，然后通过cairo_fill函数填充这个长方形。</p>
 
 <h3>上下文(context)</h3>
 
