@@ -4,7 +4,7 @@
   <title><![CDATA[flex's Blog]]></title>
   <link href="http://flexwang.github.io/atom.xml" rel="self"/>
   <link href="http://flexwang.github.io/"/>
-  <updated>2014-07-19T01:05:19-04:00</updated>
+  <updated>2014-07-19T05:43:40-04:00</updated>
   <id>http://flexwang.github.io/</id>
   <author>
     <name><![CDATA[Zhaotian Wang]]></name>
@@ -174,6 +174,7 @@ cr = cairo_create (surface);
 <span class='line-number'>28</span>
 <span class='line-number'>29</span>
 <span class='line-number'>30</span>
+<span class='line-number'>31</span>
 </pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cp">#include &lt;cairo.h&gt;</span>
 </span><span class='line'><span class="cp">#include &lt;cairo-pdf.h&gt;</span>
 </span><span class='line'><span class="kt">int</span>
@@ -192,7 +193,8 @@ cr = cairo_create (surface);
 </span><span class='line'>
 </span><span class='line'>    <span class="cm">/* Drawing code goes here */</span>
 </span><span class='line'>    <span class="n">cairo_set_source_rgb</span> <span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">);</span>
-</span><span class='line'>    <span class="n">cairo_select_font_face</span> <span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="s">&quot;Georgia&quot;</span><span class="p">,</span> <span class="n">CAIRO_FONT_SLANT_NORMAL</span><span class="p">,</span> <span class="n">CAIRO_FONT_WEIGHT_BOLD</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">cairo_select_font_face</span> <span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="s">&quot;Georgia&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="n">CAIRO_FONT_SLANT_NORMAL</span><span class="p">,</span> <span class="n">CAIRO_FONT_WEIGHT_BOLD</span><span class="p">);</span>
 </span><span class='line'>    <span class="n">cairo_set_font_size</span> <span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
 </span><span class='line'>    <span class="n">cairo_text_extents</span> <span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="s">&quot;helloworld&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">te</span><span class="p">);</span>
 </span><span class='line'>    <span class="n">cairo_move_to</span> <span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="n">width</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">te</span><span class="p">.</span><span class="n">width</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">te</span><span class="p">.</span><span class="n">x_bearing</span><span class="p">,</span>
