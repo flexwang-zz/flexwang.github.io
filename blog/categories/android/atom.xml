@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Android | flex's Blog]]></title>
+  <link href="http://flexwang.github.io/blog/categories/android/atom.xml" rel="self"/>
+  <link href="http://flexwang.github.io/"/>
+  <updated>2014-08-03T23:46:49+08:00</updated>
+  <id>http://flexwang.github.io/</id>
+  <author>
+    <name><![CDATA[Zhaotian Wang]]></name>
+    <email><![CDATA[zhaotianzju@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Happy Rubik]]></title>
+    <link href="http://flexwang.github.io/blog/2014/08/03/happy-rubik/"/>
+    <updated>2014-08-03T23:39:38+08:00</updated>
+    <id>http://flexwang.github.io/blog/2014/08/03/happy-rubik</id>
+    <content type="html"><![CDATA[<h2>Origin 起因</h2>
+
+<p>I&rsquo;ve always wanted to write a simple 3D game since I was very young. And when I was a Junior, I learned a little about OpenGL and Android, and I was also a fan of Rubik cubes. At the moment, I said to myself, why not combine those three things into an App? That was when the project started, and I coded, on and off, for about 2 years. Now it is a pretty decent one with about 10000 lines of code. I think, currently it is something I can brag about. I&rsquo;ll just put the brief introduction here and you can view the code in <a href="https://github.com/flexwang/HappyRubik">Github</a>.
+Happy Rubik is an app of Rubik&rsquo;s Cube on Android, which implements almost everything about Rubik&rsquo;s Cube.</p>
+
+<h2>Intruduction 简介</h2>
+
+<p>欢乐魔方是一款安卓上的魔方应用。它几乎完美支持三阶魔方的各种操作。</p>
+
+<ul>
+<li><p>单指旋转一列魔方进行单列旋转；</p></li>
+<li><p>双指旋转两列魔方进行双列旋转；</p></li>
+<li><p>双指旋转一列魔方进行180°旋转；</p></li>
+<li><p>在经典模式下摇一摇可以打乱或还原；</p></li>
+<li><p>在计时模式和对战模式下可以保存录像；</p></li>
+</ul>
+
+
+<h2>Version 版本</h2>
+
+<p>2.0.1</p>
+
+<h2>System Requirement 系统要求</h2>
+
+<p>Android 2.3 and above</p>
+
+<h2>Video 视频</h2>
+
+<p><a href="http://www.youtube.com/watch?feature=player_embedded&v=8GJWn7WzRNg
+" target="_blank"><img src="http://img.youtube.com/vi/8GJWn7WzRNg/0.jpg"
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a></p>
+
+<p>youtube: <a href="https://www.youtube.com/watch?v=8GJWn7WzRNg">https://www.youtube.com/watch?v=8GJWn7WzRNg</a></p>
+
+<p>youku: <a href="http://v.youku.com/v_show/id_XNjE4MzY1NDU2.html">http://v.youku.com/v_show/id_XNjE4MzY1NDU2.html</a> (China mainland only)</p>
+
+<h2>Snapshots 截图</h2>
+
+<p><img src="https://github.com/flexwang/HappyRubik/raw/master/snapshots/welcome_android.jpg" alt="GitHub" title="battle" width="200" height="300" /><img src="https://github.com/flexwang/HappyRubik/raw/master/snapshots/menu.png" alt="GitHub" title="battle" width="200" height="300" /><img src="https://github.com/flexwang/HappyRubik/raw/master/snapshots/loading.png" alt="GitHub" title="battle" width="200" height="300" /><img src="https://github.com/flexwang/HappyRubik/raw/master/snapshots/battle.png" alt="GitHub" title="battle" width="200" height="300" /></p>
+
+<h2>Download apk 下载</h2>
+
+<p>机锋网：<a href="http://apk.gfan.com/Product/App680721.html">http://apk.gfan.com/Product/App680721.html</a></p>
+
+<p>木蚂蚁：<a href="http://www.mumayi.com/android-458697.html?1385750840">http://www.mumayi.com/android-458697.html?1385750840</a></p>
+
+<p>安智网：<a href="http://www.anzhi.com/soft_1219150.html">http://www.anzhi.com/soft_1219150.html</a></p>
+
+<p>安卓市场：<a href="http://apk.hiapk.com/html/2013/11/2028725.html">http://apk.hiapk.com/html/2013/11/2028725.html</a></p>
+
+<h2>License</h2>
+
+<p>Apache License Version 2.0</p>
+]]></content>
+  </entry>
+  
+</feed>
