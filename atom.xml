@@ -4,7 +4,7 @@
   <title><![CDATA[flex's Blog]]></title>
   <link href="http://flexwang.github.io/atom.xml" rel="self"/>
   <link href="http://flexwang.github.io/"/>
-  <updated>2014-08-03T23:46:49+08:00</updated>
+  <updated>2014-08-03T23:52:36+08:00</updated>
   <id>http://flexwang.github.io/</id>
   <author>
     <name><![CDATA[Zhaotian Wang]]></name>
@@ -20,10 +20,11 @@
     <id>http://flexwang.github.io/blog/2014/08/03/happy-rubik</id>
     <content type="html"><![CDATA[<h2>Origin 起因</h2>
 
-<p>I&rsquo;ve always wanted to write a simple 3D game since I was very young. And when I was a Junior, I learned a little about OpenGL and Android, and I was also a fan of Rubik cubes. At the moment, I said to myself, why not combine those three things into an App? That was when the project started, and I coded, on and off, for about 2 years. Now it is a pretty decent one with about 10000 lines of code. I think, currently it is something I can brag about. I&rsquo;ll just put the brief introduction here and you can view the code in <a href="https://github.com/flexwang/HappyRubik">Github</a>.
-Happy Rubik is an app of Rubik&rsquo;s Cube on Android, which implements almost everything about Rubik&rsquo;s Cube.</p>
+<p>I&rsquo;ve always wanted to write a simple 3D game since I was very young. And when I was a Junior, I learned a little about OpenGL and Android, and I was also a fan of Rubik cubes. At the moment, I said to myself, why not combine those three things into an App? That was when the project started, and I coded, on and off, for about 2 years. Now it is a pretty decent one with about 10000 lines of code. I think, currently it is something I can brag about. I&rsquo;ll just put a brief introduction here and you can view the code on <a href="https://github.com/flexwang/HappyRubik">Github</a>.</p>
 
 <h2>Intruduction 简介</h2>
+
+<p>Happy Rubik is an app of Rubik&rsquo;s Cube on Android, which implements almost everything about Rubik&rsquo;s Cube.</p>
 
 <p>欢乐魔方是一款安卓上的魔方应用。它几乎完美支持三阶魔方的各种操作。</p>
 
