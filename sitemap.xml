@@ -3,34 +3,40 @@
   
   
   <url>
-    <loc>http://flexwang.github.io/blog/2014/07/23/cairochu-tan/</loc>
-    <lastmod>2014-07-23T23:21:37-04:00</lastmod>
+    <loc>http://flexwang.github.io/blog/2014/08/03/happy-rubik/</loc>
+    <lastmod>2014-08-03T23:39:38+08:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://flexwang.github.io/blog/2014/07/24/cairochu-tan/</loc>
+    <lastmod>2014-07-24T11:21:37+08:00</lastmod>
     <priority>0.8</priority>
   </url>
   
   <url>
     <loc>http://flexwang.github.io/blog/2014/07/17/ubuntu14-dot-04shang-mesa3dde-bian-yi-yu-an-zhuang/</loc>
-    <lastmod>2014-07-17T09:08:44-04:00</lastmod>
+    <lastmod>2014-07-17T21:08:44+08:00</lastmod>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>http://flexwang.github.io/blog/2014/07/10/how-i-first-contribute-to-open-source/</loc>
-    <lastmod>2014-07-10T13:17:53-04:00</lastmod>
+    <loc>http://flexwang.github.io/blog/2014/07/11/how-i-first-contribute-to-open-source/</loc>
+    <lastmod>2014-07-11T01:17:53+08:00</lastmod>
     <priority>0.8</priority>
   </url>
   
   
   <url>
     <loc>http://flexwang.github.io/</loc>
-    <lastmod>2014-07-24T10:49:30-04:00</lastmod>
+    <lastmod>2014-08-03T23:45:31+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
     <loc>http://flexwang.github.io/blog/archives/</loc>
-    <lastmod>2014-07-24T10:49:30-04:00</lastmod>
+    <lastmod>2014-08-03T23:45:31+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

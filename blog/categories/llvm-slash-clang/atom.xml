@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Llvm/clang | flex's Blog]]></title>
   <link href="http://flexwang.github.io/blog/categories/llvm-slash-clang/atom.xml" rel="self"/>
   <link href="http://flexwang.github.io/"/>
-  <updated>2014-07-24T10:49:30-04:00</updated>
+  <updated>2014-08-03T23:45:31+08:00</updated>
   <id>http://flexwang.github.io/</id>
   <author>
     <name><![CDATA[Zhaotian Wang]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Ubuntu14.04上mesa3d的编译与安装]]></title>
     <link href="http://flexwang.github.io/blog/2014/07/17/ubuntu14-dot-04shang-mesa3dde-bian-yi-yu-an-zhuang/"/>
-    <updated>2014-07-17T09:08:44-04:00</updated>
+    <updated>2014-07-17T21:08:44+08:00</updated>
     <id>http://flexwang.github.io/blog/2014/07/17/ubuntu14-dot-04shang-mesa3dde-bian-yi-yu-an-zhuang</id>
     <content type="html"><![CDATA[<p>最近在做的一个项目需要使用mesa3d，在这里记录下编译安装mesa3d的过程。</p>
 

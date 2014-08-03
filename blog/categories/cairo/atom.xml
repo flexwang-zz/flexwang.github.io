@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Cairo | flex's Blog]]></title>
   <link href="http://flexwang.github.io/blog/categories/cairo/atom.xml" rel="self"/>
   <link href="http://flexwang.github.io/"/>
-  <updated>2014-07-24T10:49:30-04:00</updated>
+  <updated>2014-08-03T23:45:31+08:00</updated>
   <id>http://flexwang.github.io/</id>
   <author>
     <name><![CDATA[Zhaotian Wang]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Cairo初探]]></title>
-    <link href="http://flexwang.github.io/blog/2014/07/23/cairochu-tan/"/>
-    <updated>2014-07-23T23:21:37-04:00</updated>
-    <id>http://flexwang.github.io/blog/2014/07/23/cairochu-tan</id>
+    <link href="http://flexwang.github.io/blog/2014/07/24/cairochu-tan/"/>
+    <updated>2014-07-24T11:21:37+08:00</updated>
+    <id>http://flexwang.github.io/blog/2014/07/24/cairochu-tan</id>
     <content type="html"><![CDATA[<h2>关于Cairo</h2>
 
 <p><a href="http://cairographics.org/">Cairo</a>是非常流行的开源2D图形渲染引擎库，它支持包括X-Windos，Win32，图像，pdf在内的各种输出设备。目前，Cairo已被广泛的使用在多个平台上来渲染图形界面，包括Firefox/Webkit-EFL/GTK+/Poppler等等。</p>
