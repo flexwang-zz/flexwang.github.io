@@ -9,7 +9,7 @@
   <meta name="author" content="Zhaotian Wang">
 
   
-  <meta name="description" content="Origin 起因 I&rsquo;ve always wanted to write a simple 3D game since I was very young. And when I was a Junior, I learned a little about OpenGL and &hellip;">
+  <meta name="description" content="A fixed-point number, as its name may suggest, is a real number representation with a fixed number of digit after the radix point. Unlike floating- &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +78,51 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/08/13/fixed-point-number/">Fixed-point Number</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-13T23:51:30+08:00" pubdate data-updated="true">Aug 13<sup>th</sup>, 2014</time>
+        
+           | <a href="/blog/2014/08/13/fixed-point-number/#disqus_thread"
+             data-disqus-identifier="http://flexwang.github.io/blog/2014/08/13/fixed-point-number/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>A fixed-point number, as its name may suggest, is a real number representation with a fixed number of digit after the radix point. Unlike floating-point number, fixed-point numbers usually provide higher performance and accuracy at the cost of range and continuity. Continuity here can also referred to as resolution.</p>
+
+<p>Essentially, a d-based fixed-point is an integer, which has been scaled by d<sup>n</sup> and then rounded. There are two typical kinds of fixed-point numbers: decimal and binary. Decimal fixed-point types have a scaling factor that is a power of ten; for binary fixed-point types it is a power of two. Binary fixed-point types are most commonly used, because the rescaling operations can be implemented as fast bit shifts.</p>
+
+<h2>Format</h2>
+
+<p>The format for binary fixed-point numbers can be written as i.f, where i is the number of digits for integer part and f is the number of digits for fractional part. Thus we can see that the an i.f fixed-point number will take i+f bits for storage and have a range of [0, 2<sup>i+1</sup>-2^-f](unsigned number is assumed). We can also see that the two consecutive numbers in i.f format will always differ by 2^-f. Here 2^-f is called the resolution of the i.f format fixed-point numbers.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -695,6 +740,10 @@ $ git merge &lt;remote-name&gt;/&lt;branch-name&gt; #merge the changes
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/08/13/fixed-point-number/">Fixed-point Number</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/08/03/happy-rubik/">Happy Rubik</a>
