@@ -4,7 +4,7 @@
   <title><![CDATA[flex's Blog]]></title>
   <link href="http://flexwang.github.io/atom.xml" rel="self"/>
   <link href="http://flexwang.github.io/"/>
-  <updated>2014-08-19T00:12:58+08:00</updated>
+  <updated>2014-08-19T11:47:58+08:00</updated>
   <id>http://flexwang.github.io/</id>
   <author>
     <name><![CDATA[Zhaotian Wang]]></name>
@@ -24,24 +24,7 @@
 
 <h2>Format</h2>
 
-<p>The format for binary fixed-point numbers can be written as i.f, where i is the number of digits for integer part and f is the number of digits for fractional part. Thus we can see that the an i.f fixed-point number will take i+f bits for storage and have a range of [0, 2<sup>i+1</sup>-2^-f](unsigned number is assumed). We can also see that the two consecutive numbers in i.f format will always differ by 2^-f. Here 2^-f is called the resolution of the i.f format fixed-point numbers.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Fixed-point Number]]></title>
-    <link href="http://flexwang.github.io/blog/2014/08/13/fixed-point-number/"/>
-    <updated>2014-08-13T23:51:30+08:00</updated>
-    <id>http://flexwang.github.io/blog/2014/08/13/fixed-point-number</id>
-    <content type="html"><![CDATA[<p>A fixed-point number, as its name may suggest, is a real number representation with a fixed number of digit after the radix point. Unlike floating-point number, fixed-point numbers usually provide higher performance and accuracy at the cost of range and continuity. Continuity here can also referred to as resolution.</p>
-
-<p>Essentially, a d-based fixed-point is an integer, which has been scaled by d<sup>n</sup> and then rounded. There are two typical kinds of fixed-point numbers: decimal and binary. Decimal fixed-point types have a scaling factor that is a power of ten; for binary fixed-point types it is a power of two. Binary fixed-point types are most commonly used, because the rescaling operations can be implemented as fast bit shifts.</p>
-
-<h2>Format</h2>
-
 <p>The format for binary fixed-point numbers can be written as i.f, where i is the number of digits for integer part and f is the number of digits for fractional part. Thus we can see that the an i.f fixed-point number will take i+f bits for storage and have a range of [0, 2<sup>i+1</sup>-2<sup>-f</sup>](unsigned number assumed). We can also see that the two consecutive numbers in i.f format will always differ by 2<sup>-f</sup>. Here 2<sup>-f</sup> is called the resolution of the i.f format fixed-point numbers.</p>
-
-<h2>Convert</h2>
 ]]></content>
   </entry>
   
