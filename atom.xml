@@ -4,7 +4,7 @@
   <title><![CDATA[flex's Blog]]></title>
   <link href="http://flexwang.github.io/atom.xml" rel="self"/>
   <link href="http://flexwang.github.io/"/>
-  <updated>2014-08-31T22:34:34+08:00</updated>
+  <updated>2014-08-31T22:36:38+08:00</updated>
   <id>http://flexwang.github.io/</id>
   <author>
     <name><![CDATA[Zhaotian Wang]]></name>
@@ -18,7 +18,7 @@
     <link href="http://flexwang.github.io/blog/2014/08/31/error-lnk2038-mismatch-detected-for-runtimelibrary/"/>
     <updated>2014-08-31T22:09:05+08:00</updated>
     <id>http://flexwang.github.io/blog/2014/08/31/error-lnk2038-mismatch-detected-for-runtimelibrary</id>
-    <content type="html"><![CDATA[<p>The error occured when I link my VS2013 project to a prebuilt static library. The complete error information is listed below.</p>
+    <content type="html"><![CDATA[<p>The error occured when I linked my VS2013 project to a prebuilt static library. The complete error information is listed below.</p>
 
 <pre><code>   error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MD_DynamicRelease' in main.obj
 </code></pre>
@@ -27,7 +27,7 @@
 
 <p>Here is how I fixed it: Go to the property page of the static library, then to <strong>Configuration Properties</strong>, then to <strong>C/C++</strong> then to <strong>Code Generation</strong> then to <strong>Runtime Library</strong>. Then I changed the setting to <strong>Multi-threaded DLL(/MD)</strong> and rebuilt the static library and everything is OK!</p>
 
-<p><img src="../images/2014-8/2014-8-31-1.png" width="1080" height="480" title="Place Kitten #4" alt="An image of a very cute kitten"></p>
+<p><img src="http://flexwang.github.io/images/2014-8/2014-8-31-1.png" width="1080" height="480" title="'error LNK2038'" ></p>
 ]]></content>
   </entry>
   

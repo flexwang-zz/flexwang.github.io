@@ -9,7 +9,7 @@
   <meta name="author" content="Zhaotian Wang">
 
   
-  <meta name="description" content="The error occured when I link my VS2013 project to a prebuilt static library. The complete error information is listed below. error LNK2038: mismatch &hellip;">
+  <meta name="description" content="The error occured when I linked my VS2013 project to a prebuilt static library. The complete error information is listed below. error LNK2038: &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -110,7 +110,7 @@
   </header>
 
 
-  <div class="entry-content"><p>The error occured when I link my VS2013 project to a prebuilt static library. The complete error information is listed below.</p>
+  <div class="entry-content"><p>The error occured when I linked my VS2013 project to a prebuilt static library. The complete error information is listed below.</p>
 
 <pre><code>   error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MD_DynamicRelease' in main.obj
 </code></pre>
@@ -119,7 +119,7 @@
 
 <p>Here is how I fixed it: Go to the property page of the static library, then to <strong>Configuration Properties</strong>, then to <strong>C/C++</strong> then to <strong>Code Generation</strong> then to <strong>Runtime Library</strong>. Then I changed the setting to <strong>Multi-threaded DLL(/MD)</strong> and rebuilt the static library and everything is OK!</p>
 
-<p><img src="../images/2014-8/2014-8-31-1.png" width="1080" height="480" title="Place Kitten #4" alt="An image of a very cute kitten"></p>
+<p><img src="http://flexwang.github.io/images/2014-8/2014-8-31-1.png" width="1080" height="480" title="'error LNK2038'" ></p>
 </div>
   
   
