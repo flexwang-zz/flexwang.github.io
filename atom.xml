@@ -4,7 +4,7 @@
   <title><![CDATA[flex's Blog]]></title>
   <link href="http://flexwang.github.io/atom.xml" rel="self"/>
   <link href="http://flexwang.github.io/"/>
-  <updated>2014-08-31T22:43:27+08:00</updated>
+  <updated>2014-08-31T22:46:33+08:00</updated>
   <id>http://flexwang.github.io/</id>
   <author>
     <name><![CDATA[Zhaotian Wang]]></name>
@@ -49,6 +49,8 @@
 <p>Of course, you can convert a floating-point number to a fixed-point one by multiplying followed by rounding. However, the process involves converting a floating-point number to an integer, which is pretty time-consuming, so that is not what we usually do.</p>
 
 <p>&ldquo;Magic number&rdquo; approach converts a floating-point number to a fixed-point number in a relatively fast way. It exploits floating-point representations and how operations on those representations behave. According to the IEEE floating-point standard, a binary floating-point number consists of three fields: sign, exponent and mantissa. For double precision floating-point number, the widths of those fields are 1, 11 and 52.</p>
+
+<h2>cont&rsquo;d</h2>
 ]]></content>
   </entry>
   
