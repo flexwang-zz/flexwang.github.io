@@ -4,7 +4,7 @@
   <title><![CDATA[flex's Blog]]></title>
   <link href="http://flexwang.github.io/atom.xml" rel="self"/>
   <link href="http://flexwang.github.io/"/>
-  <updated>2014-08-31T22:28:37+08:00</updated>
+  <updated>2014-08-31T22:30:01+08:00</updated>
   <id>http://flexwang.github.io/</id>
   <author>
     <name><![CDATA[Zhaotian Wang]]></name>
@@ -27,7 +27,7 @@
 
 <p>Here is how I fixed it: Go to the property page of the static library, then Configuration Properties, then C/C++ then Code Generation then Runtime Library. Then I changed the setting to Multi-threaded DLL(/MD) and rebuilt the static library and everything is OK!</p>
 
-<p><img src="http://flexwang.github.io/images/2014-8/2014-8-31-1.png" width="150" height="250" title="Place Kitten #4" alt="An image of a very cute kitten"></p>
+<p><img src="../images/2014-8/2014-8-31-1.png" width="150" height="250" title="Place Kitten #4" alt="An image of a very cute kitten"></p>
 ]]></content>
   </entry>
   
