@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Vs2013 | flex's Blog]]></title>
   <link href="http://flexwang.github.io/blog/categories/vs2013/atom.xml" rel="self"/>
   <link href="http://flexwang.github.io/"/>
-  <updated>2014-08-31T22:40:55+08:00</updated>
+  <updated>2014-08-31T22:43:27+08:00</updated>
   <id>http://flexwang.github.io/</id>
   <author>
     <name><![CDATA[Zhaotian Wang]]></name>
@@ -23,7 +23,7 @@
 <pre><code>   error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MD_DynamicRelease' in main.obj
 </code></pre>
 
-<p>The error arised because the prebuilt static library I linked is built with different version of runtime library (the target project is built with <strong>Multi-threaded DLL(/MD)</strong> and the static library is built with <strong>Multi-threaded(/MT)</strong>).</p>
+<p>The error arised because the prebuilt static library I linked was built with different version of runtime library (the target project is built with <strong>Multi-threaded DLL(/MD)</strong> and the static library was built with <strong>Multi-threaded(/MT)</strong>).</p>
 
 <p>Here is how I fixed it: Go to the property page of the static library, then to <strong>Configuration Properties</strong>, then to <strong>C/C++</strong> then to <strong>Code Generation</strong> then to <strong>Runtime Library</strong>. Then I changed the setting to <strong>Multi-threaded DLL(/MD)</strong> and rebuilt the static library and everything is OK!</p>
 
