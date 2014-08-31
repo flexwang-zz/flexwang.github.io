@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Fixed-point | flex's Blog]]></title>
+  <link href="http://flexwang.github.io/blog/categories/fixed-point/atom.xml" rel="self"/>
+  <link href="http://flexwang.github.io/"/>
+  <updated>2014-08-31T23:32:12+08:00</updated>
+  <id>http://flexwang.github.io/</id>
+  <author>
+    <name><![CDATA[Zhaotian Wang]]></name>
+    <email><![CDATA[zhaotianzju@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Fixed-point Number]]></title>
+    <link href="http://flexwang.github.io/blog/2014/08/13/fixed-point-number/"/>
+    <updated>2014-08-13T23:51:30+08:00</updated>
+    <id>http://flexwang.github.io/blog/2014/08/13/fixed-point-number</id>
+    <content type="html"><![CDATA[<p>A fixed-point number, as its name may suggest, is a real number representation with a fixed number of digits after the radix point. Unlike floating-point number, fixed-point numbers usually provide higher performance and accuracy at the cost of range and continuity. Continuity here can also referred to as resolution.</p>
+
+<p>Mathematically speaking, a fixed-point number is an integer created by multiplying a real number by a constant positive integer scale and removing the remaining fractional part. There are two typical kinds of fixed-point numbers: decimal and binary. Decimal fixed-point types have a scaling factor that is a power of ten; for binary fixed-point types it is a power of two. Binary fixed-point types are most commonly used, because the rescaling operations can be implemented as fast bit shifts.</p>
+
+<h2>Format</h2>
+
+<p>The format for binary fixed-point numbers can be written as i.f, where i is the number of digits for integer part and f is the number of digits for fractional part. Thus we can see that the an i.f fixed-point number will take i+f bits for storage and have a range of [0, 2<sup>i+1</sup>-2<sup>-f</sup>](unsigned number assumed). We can also see that the two consecutive numbers in i.f format will always differ by 2<sup>-f</sup>. Here 2<sup>-f</sup> is called the resolution of the i.f format fixed-point numbers.</p>
+
+<h2>Convert and Magic Number</h2>
+
+<p>Of course, you can convert a floating-point number to a fixed-point one by multiplying followed by rounding. However, the process involves converting a floating-point number to an integer, which is pretty time-consuming, so that is not what we usually do.</p>
+
+<p>&ldquo;Magic number&rdquo; approach converts a floating-point number to a fixed-point number in a relatively fast way. It exploits floating-point representations and how operations on those representations behave. According to the IEEE floating-point standard, a binary floating-point number consists of three fields: sign, exponent and mantissa. For double precision floating-point number, the widths of those fields are 1, 11 and 52.</p>
+
+<h2>cont&rsquo;d</h2>
+]]></content>
+  </entry>
+  
+</feed>
