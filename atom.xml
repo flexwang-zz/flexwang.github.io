@@ -4,7 +4,7 @@
   <title><![CDATA[flex's Blog]]></title>
   <link href="http://flexwang.github.io/atom.xml" rel="self"/>
   <link href="http://flexwang.github.io/"/>
-  <updated>2014-08-19T11:50:48+08:00</updated>
+  <updated>2014-08-31T22:27:52+08:00</updated>
   <id>http://flexwang.github.io/</id>
   <author>
     <name><![CDATA[Zhaotian Wang]]></name>
@@ -14,17 +14,41 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Error LNK2038: Mismatch Detected for 'RuntimeLibrary']]></title>
+    <link href="http://flexwang.github.io/blog/2014/08/31/error-lnk2038-mismatch-detected-for-runtimelibrary/"/>
+    <updated>2014-08-31T22:09:05+08:00</updated>
+    <id>http://flexwang.github.io/blog/2014/08/31/error-lnk2038-mismatch-detected-for-runtimelibrary</id>
+    <content type="html"><![CDATA[<p>The error occured when I link my VS2013 project to a prebuilt static library. The complete error information is listed below.</p>
+
+<pre><code>   error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MD_DynamicRelease' in main.obj
+</code></pre>
+
+<p>The error arises because the prebuilt static library I linked is built with different version of runtime library.</p>
+
+<p>Here is how I fixed it: Go to the property page of the static library, then Configuration Properties, then C/C++ then Code Generation then Runtime Library. Then I changed the setting to Multi-threaded DLL(/MD) and rebuilt the static library and everything is OK!</p>
+
+<p>Error processing input, expected syntax: {% img [class name(s)] [http[s]:/]/path/to/image [width [height]] [title text | &ldquo;title text&rdquo; [&ldquo;alt text&rdquo;]] %}</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Fixed-point Number]]></title>
     <link href="http://flexwang.github.io/blog/2014/08/13/fixed-point-number/"/>
     <updated>2014-08-13T23:51:30+08:00</updated>
     <id>http://flexwang.github.io/blog/2014/08/13/fixed-point-number</id>
-    <content type="html"><![CDATA[<p>A fixed-point number, as its name may suggest, is a real number representation with a fixed number of digit after the radix point. Unlike floating-point number, fixed-point numbers usually provide higher performance and accuracy at the cost of range and continuity. Continuity here can also referred to as resolution.</p>
+    <content type="html"><![CDATA[<p>A fixed-point number, as its name may suggest, is a real number representation with a fixed number of digits after the radix point. Unlike floating-point number, fixed-point numbers usually provide higher performance and accuracy at the cost of range and continuity. Continuity here can also referred to as resolution.</p>
 
-<p>Essentially, a d-based fixed-point is an integer, which has been scaled by d<sup>n</sup> and then rounded. There are two typical kinds of fixed-point numbers: decimal and binary. Decimal fixed-point types have a scaling factor that is a power of ten; for binary fixed-point types it is a power of two. Binary fixed-point types are most commonly used, because the rescaling operations can be implemented as fast bit shifts.</p>
+<p>Mathematically speaking, a fixed-point number is an integer created by multiplying a real number by a constant positive integer scale and removing the remaining fractional part. There are two typical kinds of fixed-point numbers: decimal and binary. Decimal fixed-point types have a scaling factor that is a power of ten; for binary fixed-point types it is a power of two. Binary fixed-point types are most commonly used, because the rescaling operations can be implemented as fast bit shifts.</p>
 
 <h2>Format</h2>
 
 <p>The format for binary fixed-point numbers can be written as i.f, where i is the number of digits for integer part and f is the number of digits for fractional part. Thus we can see that the an i.f fixed-point number will take i+f bits for storage and have a range of [0, 2<sup>i+1</sup>-2<sup>-f</sup>](unsigned number assumed). We can also see that the two consecutive numbers in i.f format will always differ by 2<sup>-f</sup>. Here 2<sup>-f</sup> is called the resolution of the i.f format fixed-point numbers.</p>
+
+<h2>Convert and Magic Number</h2>
+
+<p>Of course, you can convert a floating-point number to a fixed-point one by multiplying followed by rounding. However, the process involves converting a floating-point number to an integer, which is pretty time-consuming, so that is not what we usually do.</p>
+
+<p>&ldquo;Magic number&rdquo; approach converts a floating-point number to a fixed-point number in a relatively fast way. It exploits floating-point representations and how operations on those representations behave. According to the IEEE floating-point standard, a binary floating-point number consists of three fields: sign, exponent and mantissa. For double precision floating-point number, the widths of those fields are 1, 11 and 52.</p>
 ]]></content>
   </entry>
   
