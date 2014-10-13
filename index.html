@@ -9,7 +9,8 @@
   <meta name="author" content="Zhaotian Wang">
 
   
-  <meta name="description" content="The error occured when I linked my VS2013 project to a prebuilt static library. The complete error information is listed below. error LNK2038: &hellip;">
+  <meta name="description" content="
+">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +79,159 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/10/12/using-embree/">Using Embree</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-10-12T23:16:37+08:00" pubdate data-updated="true">Oct 12<sup>th</sup>, 2014</time>
+        
+           | <a href="/blog/2014/10/12/using-embree/#disqus_thread"
+             data-disqus-identifier="http://flexwang.github.io/blog/2014/10/12/using-embree/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/09/13/yi-dao-guan-yu-forkyu-huan-chong-qu-de-bi-shi-ti/">一道关于fork与缓冲区的笔试题</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-13T23:14:21+08:00" pubdate data-updated="true">Sep 13<sup>th</sup>, 2014</time>
+        
+           | <a href="/blog/2014/09/13/yi-dao-guan-yu-forkyu-huan-chong-qu-de-bi-shi-ti/#disqus_thread"
+             data-disqus-identifier="http://flexwang.github.io/blog/2014/09/13/yi-dao-guan-yu-forkyu-huan-chong-qu-de-bi-shi-ti/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>首先举一个简化的例子，下面的代码编译运行后，会打出多少个a？</p>
+
+<figure class='code'><figcaption><span>fork_test.c</span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cp">#include&lt;unistd.h&gt;</span>
+</span><span class='line'><span class="cp">#include&lt;stdio.h&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">void</span> <span class="nf">main</span><span class="p">()</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">fork</span><span class="p">();</span>
+</span><span class='line'>    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p>我们先来看下这个程序的运行过程，首先程序会运行第一行：printf(&ldquo;a&rdquo;)。然后，第二行中，该进程fork出了一个子进程。最后，在第三行中，父进程和子进程均运行printf(&ldquo;a&rdquo;)。这样乍一看来，最终会打出3个a（其中父进程打印2个，子进程打印1个）。然而，编译运行后，我们发现，程序最终会打出4个a。为了分析这个现象的原因，我们需要了解fork和printf的工作原理。</p>
+
+<p>先来看下fork的工作过程，fork会创建一个子进程，它将获得父进程数据空间、堆、栈等资源的副本。而对于printf，它会向标准IO的缓冲区里注入字符串，而这些字符串并不会立即刷新，输出到屏幕上。</p>
+
+<p>所以，对于上文中的程序，在执行fork的时候，printf(&ldquo;a&rdquo;)仅仅是向父进程的缓冲区注入了字符串&#8221;a&#8221;，而并没有输出到屏幕上。而fork后的子进程会获得父进程的缓冲区的副本，因而它的缓冲区中也有字符串&#8221;a&#8221;。然后，父进程和子进程都会执行第二个printf(&ldquo;a&rdquo;)。至此，二者的缓冲区都有两个&#8221;a&#8221;。因此，在两个进程退出后，一共会有4个&#8221;a&#8221;输出到屏幕上。</p>
+
+<p>具体的，printf会在下列条件下把缓冲区的内容输出到屏幕上：</p>
+
+<ul>
+<li>调用fflush</li>
+<li>缓冲区满了</li>
+<li>遇到\n\r这些字符</li>
+<li>碰到scanf这些要取缓冲数据的</li>
+<li>线程或者进程退出</li>
+</ul>
+
+
+<p>因此，如果我们把上文的程序中printf(&ldquo;a&rdquo;)替换为printf(&ldquo;a\n&rdquo;)，编译运行后，最终屏幕上就只会打出3个a。这是因为，父进程fork执行的时候，第一个printf(&ldquo;a\&rdquo;)会使得缓冲区flush，因而fork后的子进程和父进程的缓冲区都是空的。最后，父进程和子进程都会打出1个a。</p>
+
+<p>搞清楚上面的原理后，我们可以来考虑下，下面的程序在编译运行后，会打出多少个a呢？如果把printf(&ldquo;a&rdquo;)替换为printf(&ldquo;a\n&rdquo;)呢？</p>
+
+<figure class='code'><figcaption><span>fork_test2.c</span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cp">#include&lt;unistd.h&gt;</span>
+</span><span class='line'><span class="cp">#include&lt;stdio.h&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">void</span> <span class="nf">main</span><span class="p">()</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">);</span>
+</span><span class='line'>        <span class="n">fork</span><span class="p">();</span>
+</span><span class='line'>        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -798,6 +952,14 @@ $ git merge &lt;remote-name&gt;/&lt;branch-name&gt; #merge the changes
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/10/12/using-embree/">Using Embree</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/09/13/yi-dao-guan-yu-forkyu-huan-chong-qu-de-bi-shi-ti/">一道关于fork与缓冲区的笔试题</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/08/31/error-lnk2038-mismatch-detected-for-runtimelibrary/">Error LNK2038: Mismatch Detected for &#8216;RuntimeLibrary&#8217;</a>
       </li>
     
@@ -807,14 +969,6 @@ $ git merge &lt;remote-name&gt;/&lt;branch-name&gt; #merge the changes
     
       <li class="post">
         <a href="/blog/2014/08/03/happy-rubik/">Happy Rubik</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/07/24/cairochu-tan/">Cairo初探</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/07/17/ubuntu14-dot-04shang-mesa3dde-bian-yi-yu-an-zhuang/">Ubuntu14.04上mesa3d的编译与安装</a>
       </li>
     
   </ul>
